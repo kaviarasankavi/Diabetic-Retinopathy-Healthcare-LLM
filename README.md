@@ -1,18 +1,18 @@
-# 👁️ Diabetic Retinopathy Self-RAG Assistant
+#  Diabetic Retinopathy Self-RAG Assistant
 
 A **Self-Reflective Retrieval-Augmented Generation (Self-RAG)** application for answering questions about **Diabetic Retinopathy**, with a unified **ChromaDB** knowledge base storing all medical knowledge, patient records, clinical guidelines, reports, and research.
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
                     ┌──────────────────────────────────────┐
-                    │      Unified ChromaDB Vector Store    │
+                    │      Unified ChromaDB Vector Store   │
                     │                                      │
-                    │  📚 DR Knowledge (5 docs)            │
-                    │  🏥 Patient Records (300 patients)   │
-                    │  📋 Clinical Guidelines (3 docs)     │
-                    │  📊 Medical Reports (3 docs)         │
-                    │  🔬 Research Summaries (3 docs)      │
+                    │   DR Knowledge (5 docs)              │
+                    │   Patient Records (300 patients)     │
+                    │   Clinical Guidelines (3 docs)       │
+                    │   Medical Reports (3 docs)           │
+                    │   Research Summaries (3 docs)        │
                     └──────────────┬───────────────────────┘
                                    │
 User Question → Embedding → Similarity Search → Top-K Chunks
@@ -20,11 +20,11 @@ User Question → Embedding → Similarity Search → Top-K Chunks
                     ┌──────────────▼───────────────────────┐
                     │      Self-RAG Pipeline (5 Stages)    │
                     │                                      │
-                    │  1. Retrieval Decision (need lookup?) │
-                    │  2. Relevance Grading (grade chunks)  │
-                    │  3. Generation (answer from context)  │
-                    │  4. Hallucination Check (grounded?)   │
-                    │  5. Answer Quality (useful?)          │
+                    │  1. Retrieval Decision (need lookup?)│
+                    │  2. Relevance Grading (grade chunks) │
+                    │  3. Generation (answer from context) │
+                    │  4. Hallucination Check (grounded?)  │
+                    │  5. Answer Quality (useful?)         │
                     └──────────────┬───────────────────────┘
                                    │
                               Answer + Sources
@@ -37,7 +37,7 @@ User Question → Embedding → Similarity Search → Top-K Chunks
 | LLM | Groq (Llama 3.3 70B) | Free tier |
 | Framework | LangChain | Free |
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 RAG/
@@ -56,7 +56,7 @@ RAG/
 └── README.md                       # This file
 ```
 
-## 📚 Knowledge Base
+##  Knowledge Base
 
 | Category | Files | Description |
 |----------|-------|-------------|
@@ -66,7 +66,7 @@ RAG/
 | Medical Reports | 3 | Sample fundus exam, OCT scan report, case studies |
 | Research | 3 | Self-RAG paper summary, MedGemma capabilities, RAG comparison |
 
-## 🚀 Setup
+##  Setup
 
 ### 1. Get a Free Groq API Key
 
@@ -101,26 +101,26 @@ python ingest.py
 python app.py
 ```
 
-## 💬 Usage Examples
+##  Usage Examples
 
 ```
-🔹 You: What are the stages of diabetic retinopathy?
+ You: What are the stages of diabetic retinopathy?
    → Retrieves from DR knowledge docs, Self-RAG verifies and responds
 
-🔹 You: What is patient PAT-001's medical history?
+ You: What is patient PAT-001's medical history?
    → Retrieves from patient records, shows visits and prescriptions
 
-🔹 You: What are the screening guidelines for DR?
+ You: What are the screening guidelines for DR?
    → Retrieves from clinical guidelines docs
 
-🔹 You: Explain the sample fundus exam findings
+ You: Explain the sample fundus exam findings
    → Retrieves from medical reports
 
-🔹 You: How does Self-RAG compare to traditional RAG?
+ You: How does Self-RAG compare to traditional RAG?
    → Retrieves from research summaries
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 | Parameter | File | Default | Description |
 |-----------|------|---------|-------------|
